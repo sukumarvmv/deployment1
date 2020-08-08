@@ -26,7 +26,7 @@
     - name: Add extras repository
       shell: yum-config-manager --enable extras
 
-    - name: Install docker-ce (centos) via amazon-linux-extras packages
+    - name: Install docker
       shell: "sudo yum install docker -y"
 
     - name: Enable Docker CE service at startup
@@ -36,14 +36,10 @@
         enabled: yes
 
     - name: Log into DockerHub
-      docker_login:
-        username: sukumarvommina1
-        password: Pandu@089
-
+      shell: "sudo docker login -u sukumarvommina1 -p Pandu@089"
+      
     - name: pull an image
-      docker_image:
-        name: sukumarvommina1/casestudy-springboot1:1.0
-        source: pull
-    
+      shell: "sudo docker pull sukumarvommina1/casestudy-springboot1:1.0"
+      
     - name: execute image
       shell: "sudo docker run -p 80:8585 -d sukumarvommina1/casestudy-springboot1:1.0"
