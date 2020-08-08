@@ -17,7 +17,7 @@
     
   - name: Add the newly created EC2 instance(s) to the local host group
     local_action: lineinfile 
-             path=local-hots.txt
+             path=local-hots.inv
              regexp={{ item.public_ip }} 
             insertafter='\[casestudy\]' line={{ item.public_ip }}
     with_items: '{{ec2_casestudy.instances}}'
