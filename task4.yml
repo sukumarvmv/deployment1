@@ -41,7 +41,7 @@
         password: Pandu@089
 
     - name: pull an image
-       docker_image:
+      docker_image:
         name: sukumarvommina1/casestudy-springboot1:1.0
         source: pull
     
